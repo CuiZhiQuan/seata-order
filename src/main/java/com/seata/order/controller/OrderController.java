@@ -30,6 +30,12 @@ public class OrderController {
      */
     @GetMapping("create")
     public String create(Order order){
+        order = new Order();
+        order.setUserId(1L);
+        order.setProductId(1L);
+        order.setCount(1);
+        order.setMoney(new BigDecimal(100));
+        order.setStatus(0);
         orderService.create(order);
         return "Create order success";
     }
